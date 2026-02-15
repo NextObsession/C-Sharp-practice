@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -53,13 +42,9 @@ namespace Methods
                 }
                 else if (division.IsChecked.HasValue && division.IsChecked.Value)
                 {
-                    calculatedValue = divideValues(leftHandSide, rightHandSide);
-                    showResult(calculatedValue);
-                }
-                else if (remainder.IsChecked.HasValue && remainder.IsChecked.Value)
-                {
-                    calculatedValue = remainderValues(leftHandSide, rightHandSide);
-                    showResult(calculatedValue);
+                    int division, remainder;
+                    (division, remainder) = divide(leftHandSide, rightHandSide);
+                    result.Text = $"{division} remainder {remainder}";
                 }
             }
             catch (Exception caught)
@@ -87,16 +72,12 @@ namespace Methods
             return leftHandSide * rightHandSide;
         }
 
-        private int divideValues(int leftHandSide, int rightHandSide)
+        private (int, int) divide(int leftHandSide, int rightHandSide)
         {
             expression.Text = $"{leftHandSide} / {rightHandSide}";
-            return leftHandSide / rightHandSide;
-        }
-
-        private int remainderValues(int leftHandSide, int rightHandSide)
-        {
-            expression.Text = $"{leftHandSide} % {rightHandSide}";
-            return leftHandSide % rightHandSide;
+            int division = leftHandSide / rightHandSide;
+            int remainder = leftHandSide % rightHandSide;
+            return (division, remainder);
         }
 
         private void showResult(int answer) => result.Text = answer.ToString();

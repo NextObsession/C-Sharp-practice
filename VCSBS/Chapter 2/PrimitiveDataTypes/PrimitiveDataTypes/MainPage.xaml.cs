@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -61,7 +48,9 @@ namespace PrimitiveDataTypes
 
         private void showIntValue()
         {
-            value.Text = "to do";
+            int intVar;
+            intVar = 42;
+            value.Text = intVar.ToString();
         }
 
         private void showLongValue()
@@ -80,7 +69,9 @@ namespace PrimitiveDataTypes
 
         private void showDoubleValue()
         {
-            value.Text = "to do";
+            double doubleVar;
+            doubleVar = 0.42;
+            value.Text = doubleVar.ToString();
         }
 
         private void showDecimalValue()
@@ -106,7 +97,9 @@ namespace PrimitiveDataTypes
 
         private void showBoolValue()
         {
-            value.Text = "to do";
+            bool boolVar;
+            boolVar = false;
+            value.Text = boolVar.ToString();
         }
     }
 }
