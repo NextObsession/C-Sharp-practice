@@ -31,7 +31,7 @@ namespace DailyRate
 
         private double readDouble(String v)
         {
-            Console.Write(v);
+            Console.WriteLine(v);
             String line = Console.ReadLine();
             return double.Parse(line);
         }
